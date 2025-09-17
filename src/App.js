@@ -1,6 +1,8 @@
 import Card from "./components/Card";
 import Counter from "./components/Counter";
 import Greeting from "./components/Greeting";
+import Logical from "./components/Logical";
+
 
 function App() {
   const handleIncrease = () => {
@@ -8,7 +10,7 @@ function App() {
   }
   return (
     <div className="App">
-      후츠릿
+      <Logical />
       <Greeting username="박성혜"/>
       <Greeting username="별지기"/>
       <Greeting username="날마다"/>
