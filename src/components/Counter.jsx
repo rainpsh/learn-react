@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 
-function Counter() {
+function Counter({step = 1, onIncreaseClick }) {
   // logic
   //let count = 0;
   // state
-  const [count, setCount] = useState(0)
-  const MAX = 10
-  const MIN = 0
 
+  // 첫번째 변수는 데이터, 두번째 변수는 함수
+  const [count, setCount] = useState(0)
+  const MAX = 100
+  const MIN = 0
+  
  
   const handleIncrease = ( ) => {
  //   count += 1;
     if(count >= MAX) return
-    setCount(count + 1)
+    setCount(count + step)
+
+    onIncreaseClick()
   }
    // console.log("🚀 ~ handleIncrease ~ count:", count)
   
@@ -20,7 +24,7 @@ function Counter() {
   //   setCount(count - 1) 
    // if(count <= MIN) return
    // setCount((prev) => prev -1 )
-    setCount((prev) => count <= MIN ? count : prev -1 )
+    setCount((prev) => count <= MIN ? count : prev - step )
     
   }
  
@@ -31,9 +35,9 @@ function Counter() {
       <h1>카운터</h1>
       <h2>{count}</h2>
       <div>
-        <button type="button" onClick={handleIncrease} > +1
+        <button type="button" onClick={handleIncrease} > + {step}
         </button>
-        <button type="button" onClick={handleDecrease}> -1
+        <button type="button" onClick={handleDecrease}> - {step}
         </button>
       </div>
     </div>
